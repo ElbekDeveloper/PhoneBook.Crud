@@ -13,6 +13,5 @@ namespace PhoneBook.Crud.Brokers
             Console.WriteLine(exception.Message);
             Console.ResetColor();
         }
-
     }
 }
