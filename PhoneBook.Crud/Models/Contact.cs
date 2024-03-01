@@ -1,7 +1,4 @@
-﻿using System;
-
-
-namespace PhoneBook.Crud.Models
+﻿namespace PhoneBook.Crud.Models
 {
     internal class Contact
     {
