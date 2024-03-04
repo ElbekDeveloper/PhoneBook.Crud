@@ -5,5 +5,6 @@ namespace PhoneBook.Crud.Brokers.Storages
     internal interface IStorageBroker
     {
         Contact AddContact(Contact contact);
+        Contact[] ReadAllContacts();
     }
 }

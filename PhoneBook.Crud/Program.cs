@@ -11,14 +11,7 @@ namespace PhoneBook.Crud
         {
             IContactService contactService = new ContactService();
 
-            Contact contact = new Contact
-            {
-                Id = 1,
-                Name = "John Doe",
-                Phone = "123-456-7890"
-            };
-
-            contactService.AddContact(contact);
+            contactService.ShowContacts();
         }
     }
 }
