@@ -11,7 +11,7 @@ namespace PhoneBook.Crud
         {
             IContactService contactService = new ContactService();
 
-            contactService.AddContact(null);
+            contactService.AddContact(new Contact());
         }
     }
 }

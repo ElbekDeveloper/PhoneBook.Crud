@@ -1,4 +1,5 @@
-﻿using PhoneBook.Crud.Brokers.Loggings;
+﻿using System;
+using PhoneBook.Crud.Brokers.Loggings;
 using PhoneBook.Crud.Brokers.Storages;
 using PhoneBook.Crud.Models;
 
@@ -19,7 +20,7 @@ namespace PhoneBook.Crud.Services.Contacts
         {
             return contact is null
                 ? CreateAndLogInvalidContact()
-                : this.storageBroker.AddContact(contact);
+                : ValidateAndAddContact(contact);
         }
 
         public void ShowContacts()
@@ -38,6 +39,21 @@ namespace PhoneBook.Crud.Services.Contacts
         {
             this.loggingBroker.LogError("Contact is invalid.");
             return new Contact();
+        }
+
+        private Contact ValidateAndAddContact(Contact contact)
+        {
+            if (contact.Id is 0
+                || String.IsNullOrWhiteSpace(contact.Name)
+                || String.IsNullOrWhiteSpace(contact.Phone))
+            {
+                this.loggingBroker.LogError("Contact details missing.");
+                return new Contact();
+            }
+            else
+            {
+                return this.storageBroker.AddContact(contact);
+            }
         }
     }
 }
