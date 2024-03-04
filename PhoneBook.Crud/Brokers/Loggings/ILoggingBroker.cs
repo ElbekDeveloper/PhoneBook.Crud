@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PhoneBook.Crud.Brokers
+namespace PhoneBook.Crud.Brokers.Loggings
 {
     internal interface ILoggingBroker
     {
