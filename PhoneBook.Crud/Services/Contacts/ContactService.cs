@@ -17,5 +17,17 @@ namespace PhoneBook.Crud.Services.Contacts
         
         public Contact AddContact(Contact contact) =>
             this.storageBroker.AddContact(contact);
+
+        public void ShowContacts()
+        {
+            Contact[] contacts = this.storageBroker.ReadAllContacts();
+
+            foreach (Contact contact in contacts)
+            {
+                this.loggingBroker.LogInformation($"{contact.Id}. {contact.Name} - {contact.Phone}");
+            }
+
+            this.loggingBroker.LogInformation("===End of contacts===");
+        }
     }
 }
