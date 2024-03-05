@@ -22,6 +22,9 @@ namespace PhoneBook.Crud.Brokers.Storages
             return contact;
         }
 
+
+
+
         public Contact[] ReadAllContacts()
         {
             string[] contactLines = File.ReadAllLines(FilePath);
